@@ -13,19 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tugas', function (Blueprint $table) {
+        Schema::create('kumpul_jawaban', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_matakuliah')->unsigned();
-            $table->bigInteger('user_id_dosen')->unsigned();
-            $table->string('judul');
-            $table->text('deskripsi');
+            $table->bigInteger('tugas_id')->unsigned();
             $table->string('namaFile')->nullable();
             $table->string('lokasiFile')->nullable();
-            $table->datetime('waktu_unggah');
+            $table->integer('nilai')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id_dosen')->references('id')->on('users');
-            $table->foreign('id_matakuliah')->references('id')->on('matakuliah');
+            $table->foreign('tugas_id')->references('id')->on('tugas');
         });
     }
 
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tugas');
+        Schema::dropIfExists('kumpul_jawaban');
     }
 };

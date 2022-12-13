@@ -16,4 +16,16 @@ class Tugas extends Model
         'namaFile',
         'waktu_unggah',
     ];
+
+    public function matakuliah(){
+        return $this->belongsTo(Matakuliah::class, "id_matakuliah");
+    }
+
+    public function id_dosen(){
+        return $this->belongsTo(User::class, "user_id_dosen");
+    }
+
+    public function tugas(){
+        return $this->hasMany(Kumpul_Jawaban::class, "tugas_id");
+    }
 }

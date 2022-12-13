@@ -17,7 +17,7 @@ class Semester extends Model
     ];
 
     public function id_semester(){
-        return $this->hasMany(Pengambilan_Matakuliah::class);
+        return $this->hasMany(Pengambilan_Matakuliah::class, "id_semester");
     }
 
 }

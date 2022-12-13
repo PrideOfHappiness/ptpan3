@@ -1,12 +1,12 @@
-@extends('dashboard/dashboardAdmin')
+@extends('dashboard/dashboardDosen')
 
 @section('layout')
-    <h1>List Data Semester</h1>
+    <h1>List Data Tugas</h1>
 @endsection
 
 @section('isi')
     <div class = "pull-right mb-2">
-        <a class="btn btn-success" href="{{ route('pengambilan_matakuliah.create') }}"> Tambah Data Pengambilan Matakuliah</a>
+        <a class="btn btn-success" href="{{ route('pengambilan_matakuliah.create') }}"> Tambah Data Tugas</a>
     </div>
 
     @if ($message = Session::get('success'))
@@ -19,9 +19,8 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nama Mahasiswa</th>
-                <th>Matakuliah yang Diambil</th>
-                <th>Semester</th>
+                <th>Nama Tugas </th>
+                <th>Waktu Upload</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -29,9 +28,6 @@
             @foreach ($report_kuliah as $semester)
               <tr>
                 <td>{{ $semester->id }} </td>
-                <td>{{ $semester->id_mahasiswa->name }} </td>
-                <td>{{ $semester->matakuliah->nama }} </td>
-                <td>{{ $semester->semester->namaSemester }} </td>
                 <td>
                     <form action = "{{ route('pengambilan_matakuliah.destroy', $semester->id) }}" method="Post">
                       <a class="badge bg-info" href="{{ route('pengambilan_matakuliah.show',$semester->id) }}">Detail</span></a>

@@ -23,7 +23,11 @@ class Matakuliah extends Model
     ];
 
     public function id_matakuliah(){
-        return $this->hasMany(Pengambilan_Matakuliah::class);
+        return $this->hasMany(Pengambilan_Matakuliah::class, "id_matakuliah");
+    }
+
+    public function matakuliah_tugas(){
+        return $this->hasMany(Tugas::class, "id_matakuliah");
     }
 
 

@@ -48,6 +48,6 @@ class User extends Authenticatable
     ];
 
     public function user_id_mahasiswa(){
-        return $this->hasMany(Pengambilan_Matakuliah::class);
+        return $this->hasMany(Pengambilan_Matakuliah::class, "user_id_mahasiswa");
     }
 }
