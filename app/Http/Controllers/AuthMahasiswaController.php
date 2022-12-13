@@ -16,7 +16,7 @@ class AuthMahasiswaController extends Controller
 {
     public function showFormLogin()
     {
-        return view('loginMhs');
+        return view('auth/loginMhs');
     }
 
     public function login(Request $request)
@@ -46,7 +46,7 @@ class AuthMahasiswaController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/Mahasiswa');
+        return redirect('/mahasiswa');
     }
 
 }

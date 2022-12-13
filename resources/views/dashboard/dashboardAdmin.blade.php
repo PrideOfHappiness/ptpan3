@@ -54,5 +54,5 @@
 @endsection
 
 @section('dashboard')
-<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/Admin/Home">SM FTI UKDW</a>
+<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/Admin/Home">SIPA UKDW</a>
 @endsection

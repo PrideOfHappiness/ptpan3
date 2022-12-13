@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class LoginPageController extends Controller
 {
     public function MahasiswaLogin(){
-        return view('auth/login');
+        return view('auth/loginMahasiswa');
     }
 
     public function DosenLogin(){

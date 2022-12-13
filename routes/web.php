@@ -32,7 +32,7 @@ Route::get('/admin', [LoginPageController::class, 'AdminLogin']);
 
 //Auth
 Route::get('/mahasiswa/Home', function () {
-    return view('mahasiswa\dashboardMahasiswa');
+    return view('dashboard\dashboardMahasiswa');
 })->middleware('auth');
 
 Route::get('/dosen/Home', function () {
