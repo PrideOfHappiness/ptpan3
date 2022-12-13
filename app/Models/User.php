@@ -46,4 +46,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user_id_mahasiswa(){
+        return $this->hasMany(Pengambilan_Matakuliah::class);
+    }
 }

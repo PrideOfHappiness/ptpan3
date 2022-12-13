@@ -12,18 +12,19 @@ class Matakuliah extends Model
     protected $table = 'matakuliah';
 
     protected $fillable = [
+        'user_id',
         'nama',
         'nama_dosen',
         'tempat_kelas',
         'tanggal',
         'hari_pelaksanaan',
         'jam_mulai',
-        'jam_selesai'
+        'jam_selesai',
     ];
 
-    protected $hidden = [
-        'user_id',
-    ];
+    public function id_matakuliah(){
+        return $this->hasMany(Pengambilan_Matakuliah::class);
+    }
 
 
 }

@@ -21,4 +21,16 @@ class Pengambilan_Matakuliah extends Model
         'id_matakuliah',
         'id_semester',
     ];
+
+    public function user_id_mahasiswa(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function id_matakuliah(){
+        return $this->belongsTo(Matakuliah::class);
+    }
+
+    public function id_semester(){
+        return $this->belongsTo(Semester::class);
+    }
 }

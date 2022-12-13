@@ -41,12 +41,9 @@ class AuthDosenController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
-        return redirect('/Dosen');
+        return redirect('/dosen');
     }
 }
 

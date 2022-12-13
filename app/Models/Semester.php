@@ -16,4 +16,8 @@ class Semester extends Model
         'status',
     ];
 
+    public function id_semester(){
+        return $this->hasMany(Pengambilan_Matakuliah::class);
+    }
+
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthMahasiswaController;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\Pengambilan_MatakuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ Route::get('/mahasiswa/Home', function () {
 })->middleware('auth');
 
 Route::get('/dosen/Home', function () {
-    return view('dsashboard\dashboardDosen');
+    return view('dashboard\dashboardDosen');
 })->middleware('auth');
 
 Route::get('/admin/Home', function () {
@@ -55,3 +57,9 @@ Route::resource('semester', SemesterController::class);
 
 //User
 Route::resource('user', UserController::class);
+
+//Matakuliah
+Route::resource('matakuliah', MatakuliahController::class);
+
+//Pengambilan_Matakuliah
+Route::resource('pengambilan_matakuliah', Pengambilan_MatakuliahController::class);
