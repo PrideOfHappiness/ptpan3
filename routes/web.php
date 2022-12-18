@@ -8,7 +8,9 @@ use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\MatakuliahDosenController;
 use App\Http\Controllers\Pengambilan_MatakuliahController;
+use App\Http\Controllers\TugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +62,20 @@ Route::resource('user', UserController::class);
 
 //Matakuliah
 Route::resource('matakuliah', MatakuliahController::class);
+Route::resource('matakuliahDosen', MatakuliahDosenController::class);
 
 //Pengambilan_Matakuliah
 Route::resource('pengambilan_matakuliah', Pengambilan_MatakuliahController::class);
+
+//Tugas
+Route::resource('tugas', TugasController::class);
+/*Route::get('/tugas', [TugasController::class, 'index']);
+Route::get('/tugas/create', [TugasController::class, 'create'])->name('buatTugas');
+Route::post('/tugas/store', [TugasController::class, 'store'])->name('simpanTugas');
+Route::get('/tugas/show/{id}', [TugasController::class, 'show']);
+Route::get('/tugas/edit/{id}', [TugasController::class, 'edit'])->name('editTugas');
+Route::get('/tugas/update/{id}', [TugasController::class, 'update'])->name('updateTugas');*/
+
+//Kumpul_Tugas
+
+

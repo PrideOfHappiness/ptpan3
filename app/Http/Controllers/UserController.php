@@ -56,13 +56,15 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
             'hak_akses' => 'required',
-            'no_telp' => 'required',
+            'no_hp' => 'required',
             'status' => 'required',
+            'password' => 'required',
         ]);
 
-        $semester = User::find($id);
+        $user = User::find($id);
 
-        $semester->update($request->all());
+        $user->update($request->all());
+
         return redirect()->route('user.index')
             ->with('success', 'Data Berhasil Diubah!');
     }

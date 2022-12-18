@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('nama');
-            $table->string('nama_dosen');
+            $table->bigInteger('nama_dosen')->unsigned();
             $table->string('tempat_kelas');
             $table->date('tanggal');
             $table->string('hari_pelaksanaan');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('jam_selesai');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('nama_dosen')->references('id')->on('users');
         });
     }
 

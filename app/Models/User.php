@@ -47,6 +47,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function nama_dosen(){
+        return $this->hasMany(Matakuliah::class, "nama_dosen");
+    }
+
     public function user_id_mahasiswa(){
         return $this->hasMany(Pengambilan_Matakuliah::class, "user_id_mahasiswa");
     }

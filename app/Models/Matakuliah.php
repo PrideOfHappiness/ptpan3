@@ -26,8 +26,12 @@ class Matakuliah extends Model
         return $this->hasMany(Pengambilan_Matakuliah::class, "id_matakuliah");
     }
 
-    public function matakuliah_tugas(){
-        return $this->hasMany(Tugas::class, "id_matakuliah");
+    public function dosen(){
+        return $this->belongsTo(User::class, "nama_dosen");
+    }
+
+    public function matakuliah_id(){
+        return $this->hasMany(Tugas::class, "matakuliah_id");
     }
 
 

@@ -9,7 +9,7 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="user_id" class="form-label">User ID</label>
+            <label for="nim" class="form-label">User ID</label>
             <input type="text" class="form-control" id="nim" name="nim" placeholder="User ID (NIM/NIK)" value="{{ $user->nim }}" required>
         </div>
         <div class="mb-3">

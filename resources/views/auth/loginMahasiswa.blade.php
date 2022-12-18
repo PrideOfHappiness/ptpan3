@@ -8,7 +8,7 @@
                 <div class="col-md-7 col-lg-5">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center mb-3">Portal Admin</h3>
+                            <h3 class="text-center mb-3">Portal Mahasiswa</h3>
                             <form action="{{ route('loginMhs') }}" method="POST">
                                 @csrf
                                 <div class="form-group">

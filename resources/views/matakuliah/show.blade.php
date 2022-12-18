@@ -1,4 +1,4 @@
-@extends('dashboard/dashboardDosen')
+@extends('dashboard/dashboardAdmin')
 
 @section('layout')
     <h1>Detail Data Matakuliah</h1>
@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="nama_dosen" class="form-label">Nama Dosen</label>
-            <input type="text" class="form-control" id="namaDosen" name="nama_dosen" value="{{ auth()->user()->name }}"placeholder="Nama Matakuliah" readonly>
+            <input type="text" class="form-control" id="nama_dosen" name="nama_dosen" value="{{ $matakuliah->dosen->name }}" placeholder="Nama Matakuliah" readonly>
         </div>
         <div class="mb-3">
             <label for="tempat_kelas" class="form-label">Tempat Kelas</label>
@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Tanggal Pelaksanaan</label>
-            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+            <input type="text" class="form-control" id="tanggal" name="tanggal" value="{{ $matakuliah->tanggal }} "required>
         </div>
         <div class="mb-3">
             <label for="hari_pelaksanaan" class="form-label">Hari Pelaksanaan Kelas</label>

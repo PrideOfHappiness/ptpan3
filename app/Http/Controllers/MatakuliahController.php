@@ -16,13 +16,18 @@ use Carbon\Carbon;
 class MatakuliahController extends Controller
 {
     public function index(){
-        $dataMatkul = Matakuliah::where('nama_dosen', auth()->user()->name)->paginate(10);
+        $dataMatkul = Matakuliah::latest()->paginate(15);
         return view('matakuliah.index', compact('dataMatkul'));
+    }
+
+    public function indexDosen(){
+        $dataMatkul = Matakuliah::where('nama_dosen', auth()->user()->name)->paginate(10);
+        return view('matakuliah.indexDosen', compact('dataMatkul'));
     }
 
     public function create(){
         $dosen = User::selectRaw("id, nim, name, concat(users.nim, ' - ', users.name) as nama")
-            ->get();
+            ->where('hak_akses', 'Dosen')->where('status', 'Aktif')->get();
         return view('matakuliah.create')->with('dosen', $dosen);
     }
 
@@ -55,11 +60,13 @@ class MatakuliahController extends Controller
     }
 
     public function show(Matakuliah $matakuliah){
-        return view('matakuliah.show',compact('matakuliah'));
+        return view('matakuliah.show')->with('matakuliah', $matakuliah);
     }
 
     public function edit(Matakuliah $matakuliah){
-        return view('matakuliah.edit',compact('matakuliah'));
+        $dosen = User::selectRaw("id, nim, name, concat(users.nim, ' - ', users.name) as nama")
+            ->where('hak_akses', 'Dosen')->where('status', 'Aktif')->get();
+        return view('matakuliah.edit', compact('matakuliah', 'dosen'));
     }
 
     public function update(Request $request, $id){

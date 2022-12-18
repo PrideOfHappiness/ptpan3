@@ -1,4 +1,4 @@
-@extends('dashboard/dashboardDosen')
+@extends('dashboard/dashboardAdmin')
 
 @section('layout')
     <h1>Tambah Data Matakuliah</h1>
@@ -14,7 +14,12 @@
         </div>
         <div class="mb-3">
             <label for="nama_dosen" class="form-label">Nama Dosen</label>
-            <input type="text" class="form-control" id="namaDosen" name="nama_dosen" value="{{ auth()->user()->name }}"placeholder="Nama Matakuliah" readonly>
+            <select name="nama_dosen" id="nama_dosen" class="form-control select2-multiple">
+                <option value="">Silahkan pilih dosen terlebih dahulu!</option>
+                @foreach($dosen as $dsn)
+                    <option value="{{$dsn->id}}"> {{ $dsn->nama }} </option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="tempat_kelas" class="form-label">Tempat Kelas</label>

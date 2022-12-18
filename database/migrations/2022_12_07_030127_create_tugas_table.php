@@ -15,17 +15,15 @@ return new class extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_matakuliah')->unsigned();
+            $table->bigInteger('matakuliah_id')->unsigned();
             $table->bigInteger('user_id_dosen')->unsigned();
             $table->string('judul');
             $table->text('deskripsi');
-            $table->string('namaFile')->nullable();
             $table->string('lokasiFile')->nullable();
-            $table->datetime('waktu_unggah');
             $table->timestamps();
 
             $table->foreign('user_id_dosen')->references('id')->on('users');
-            $table->foreign('id_matakuliah')->references('id')->on('matakuliah');
+            $table->foreign('matakuliah_id')->references('id')->on('matakuliah');
         });
     }
 

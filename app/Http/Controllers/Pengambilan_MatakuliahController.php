@@ -50,10 +50,9 @@ class Pengambilan_MatakuliahController extends Controller
     }
 
     public function show(Pengambilan_Matakuliah $ambilMatkul){
-        $mahasiswa = User::selectRaw("id, nim, name, concat(users.nim, ' - ', users.name) as nama")
-            ->where('hak_akses', 'Mahasiswa')->where('status', 'Aktif')->get();
-        $semester = Semester::select("id, namaSemester")->get();
-        $matakuliah = Matakuliah::select("id, nama")->get();
+        $mahasiswa = User::with('user_id_mahasiswa')->select(['id', 'name'])->get();
+        $semester = Semester::with('id_semester')->select(['id', 'namaSemester'])->get();
+        $matakuliah = Matakuliah::with('id_matakuliah')->select(['id', 'nama'])->get();
         return view('pengambilan_matakuliah.show')->with('mahasiswa', $mahasiswa)->with('semester', $semester)->with('matakuliah', $matakuliah);
     }
 

@@ -6,7 +6,7 @@
 
 @section('isi')
     <div class = "pull-right mb-2">
-        <a class="btn btn-success" href="{{ route('pengambilan_matakuliah.create') }}"> Tambah Data Tugas</a>
+        <a class="btn btn-success" href="{{ route('tugas.create') }}"> Tambah Data Tugas</a>
     </div>
 
     @if ($message = Session::get('success'))
@@ -25,20 +25,23 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($report_kuliah as $semester)
+            @foreach ($dataTugas as $semester)
               <tr>
                 <td>{{ $semester->id }} </td>
+                <td>{{ $semester->judul}} </td>
+                <td>{{ $semester->created_at}} </td>
                 <td>
-                    <form action = "{{ route('pengambilan_matakuliah.destroy', $semester->id) }}" method="Post">
-                      <a class="badge bg-info" href="{{ route('pengambilan_matakuliah.show',$semester->id) }}">Detail</span></a>
+                    <form action = "{{ route('tugas.destroy', $semester->id) }}" method="Post">
+                      <a class="badge bg-info" href="{{ route('tugas.show', $semester->id) }}">Detail Tugas</span></a>
+                      <a class="badge bg-warning" href="{{ route('tugas.edit', $semester->id) }}">Edit Tugas</span></a>
                       @csrf
                       @method("DELETE")
-                      <button type="submit" class="badge bg-danger"> Delete </button>
+                      <button type="submit" class="badge bg-danger"> Hapus Tugas </button>
                     </form>
                 </td>
               </tr>
             @endforeach
             </tbody>
     </table>
-    {!! $report_kuliah->links() !!}
+    {!! $dataTugas->links() !!}
 @endsection
